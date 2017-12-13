@@ -1,0 +1,39 @@
+{
+    "name": "exam_section_2",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1 npm run testAndCoverage",
+
+        "testOnly": "npm run test_mocha_all",
+        "start": "nodemon src/main_webServer.js",
+        "test_mocha_testDirOnly": "mocha",
+        "test_mocha_all": "mocha --recursive",
+        "test_mocha_all_TDD_asWellAs_BDD": "mocha --recursive --ui tdd",
+
+        "testAndCoverage": "npm run testAndCoverage_via_istanbul && npm run testAndCoverage_via_nyc",
+        "testAndCoverage_via_nyc": "nyc mocha --recursive",
+        "testAndCoverage_via_istanbul": "istanbul cover ./node_modules/mocha/bin/_mocha -- --recursive",
+        "testAndCoverageAndReport": "npm run testAndCoverage && npm run openCoverageReport",
+        "openCoverageReport": "npm run openCoverageReport_inBrowser",
+        "openCoverageReport_inBrowser": "opn coverage/lcov-report/index.html"
+    },
+    "keywords": ["mocha"],
+    "author": "Charles Shields",
+    "license": "ISC",
+    "dependencies": {
+        "ejs": "^2.5.7",
+        "express": "^4.16.2"
+    },
+    "devDependencies": {
+        "chai": "^4.1.2",
+        "istanbul": "^0.4.5",
+        "mocha": "^4.0.1",
+        "nodemon": "^1.12.1",
+        "nyc": "^11.3.0"
+    }
+}
